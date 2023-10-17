@@ -1,5 +1,9 @@
-//const contacts = require("./contacts"); // Upewnij się, że ścieżka do modułu jest odpowiednia
-//const { Command } = require("commander");
+import {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+} from "./contacts"; // Importuj funkcje z modułu contacts.js
 import { Command } from "commander";
 const program = new Command();
 program
@@ -17,20 +21,27 @@ const argv = program.opts();
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-      // ...
-      console.log(20);
+      const contacts = listContacts();
+      console.table(contacts);
       break;
 
     case "get":
-      // ... id
+      const contact = getContactById(id);
+      console.log(contact);
       break;
 
     case "add":
-      // ... name email phone
+      const newContact = addContact(name, email, phone);
+      console.log("Added contact:", newContact);
       break;
 
     case "remove":
-      // ... id
+      const isRemoved = removeContact(id);
+      if (isRemoved) {
+        console.log("Contact removed successfully.");
+      } else {
+        console.log("Contact not found.");
+      }
       break;
 
     default:
