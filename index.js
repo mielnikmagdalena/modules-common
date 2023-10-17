@@ -1,5 +1,6 @@
-const contacts = require("./contacts"); // Upewnij się, że ścieżka do modułu jest odpowiednia
-const { Command } = require("commander");
+//const contacts = require("./contacts"); // Upewnij się, że ścieżka do modułu jest odpowiednia
+//const { Command } = require("commander");
+import { Command } from "commander";
 const program = new Command();
 program
   .option("-a, --action <type>", "choose action")
@@ -17,6 +18,7 @@ function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       // ...
+      console.log(20);
       break;
 
     case "get":

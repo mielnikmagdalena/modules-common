@@ -1,10 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-
+//const fs = require("fs");
+//const path = require("path");
+import fs from "fs";
+import path from "path";
 // Ścieżka do pliku contacts.json
-const contactsPath = path.join(__dirname, "db", "contacts.json");
+const contactsPath = path.join(process.cwd, "db", "contacts.json");
 
-function listContacts() {
+export function listContacts() {
   // Odczytaj dane z pliku contacts.json
   try {
     const data = fs.readFileSync(contactsPath, "utf-8");
@@ -15,20 +16,20 @@ function listContacts() {
   }
 }
 
-function getContactById(contactId) {
+export function getContactById(contactId) {
   const contacts = listContacts();
   const contact = contacts.find((c) => c.id === contactId);
   return contact;
 }
 
-function removeContact(contactId) {
+export function removeContact(contactId) {
   const contacts = listContacts();
   const updatedContacts = contacts.filter((c) => c.id !== contactId);
   saveContacts(updatedContacts);
   return contacts.length !== updatedContacts.length;
 }
 
-function addContact(name, email, phone) {
+export function addContact(name, email, phone) {
   const contacts = listContacts();
   const newContact = {
     id: Date.now(),
@@ -41,7 +42,7 @@ function addContact(name, email, phone) {
   return newContact;
 }
 
-function saveContacts(contacts) {
+export function saveContacts(contacts) {
   const data = JSON.stringify(contacts, null, 2);
   fs.writeFileSync(contactsPath, data);
 }
