@@ -5,6 +5,10 @@
 node index.js --action list
 lub
 npm run start -- -a list
+Uwaga!
+npm run start -a list niestety nie działa, trzeba dodać --
+np:
+npm run start -- -a list //odpala listę
 
 # Otrzymujemy kontakt po id
 
@@ -17,3 +21,6 @@ node index.js --action add --name Mango --email mango@gmail.com --phone 322-22-2
 # Usuwamy kontakt
 
 node index.js --action remove --id qdggE76Jtbfd9eWJHrssH
+
+Print screeny pokazujące jak działa aplikacja wzięte z terminala VSC można znaleźć pod linkiem:
+https://magdalena-mielni.imgbb.com
