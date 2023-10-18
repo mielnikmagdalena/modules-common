@@ -3,7 +3,7 @@
 import fs from "fs";
 import path from "path";
 // Ścieżka do pliku contacts.json
-const contactsPath = path.join(process.cwd, "db", "contacts.json");
+const contactsPath = path.join(process.cwd(), "db", "contacts.json");
 
 export function listContacts() {
   // Odczytaj dane z pliku contacts.json
@@ -46,10 +46,3 @@ export function saveContacts(contacts) {
   const data = JSON.stringify(contacts, null, 2);
   fs.writeFileSync(contactsPath, data);
 }
-
-module.exports = {
-  listContacts,
-  getContactById,
-  removeContact,
-  addContact,
-};

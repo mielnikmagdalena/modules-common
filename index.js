@@ -3,7 +3,7 @@ import {
   getContactById,
   removeContact,
   addContact,
-} from "./contacts"; // Importuj funkcje z modułu contacts.js
+} from "./contacts.js"; // Importuj funkcje z modułu contacts.js
 import { Command } from "commander";
 const program = new Command();
 program
@@ -49,4 +49,4 @@ function invokeAction({ action, id, name, email, phone }) {
   }
 }
 
-invokeAction(argv);
+//invokeAction(argv);
